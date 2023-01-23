@@ -1,0 +1,19 @@
+/* SECTION Elements */
+
+body{
+  background-color: rgb(75, 2, 2);
+}
+
+button{
+  transition: 0.4s;
+}
+
+button:hover{
+  transform: scale(1.1);
+}
+
+/* SECTION Classes */
+
+.team-box{
+  border: 2px solid black;
+}
