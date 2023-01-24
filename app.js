@@ -12,7 +12,39 @@ function scoreOneIncrease(){
   loadTeams()
 }
 
+function fumbleOne(){
+  teamOne.score--
+  saveTeamOne()
+  loadTeams()
+}
+
+function GOALONE(){
+  teamOne.score++
+  teamOne.score++
+  teamOne.score++
+  teamOne.score++
+  teamOne.score++
+  saveTeamOne()
+  loadTeams()
+}
+
 function scoreTwoIncrease(){
+  teamTwo.score++
+  saveTeamTwo()
+  loadTeams()
+}
+
+function fumbleTwo(){
+  teamTwo.score--
+  saveTeamTwo()
+  loadTeams()
+}
+
+function GOALTWO(){
+  teamTwo.score++
+  teamTwo.score++
+  teamTwo.score++
+  teamTwo.score++
   teamTwo.score++
   saveTeamTwo()
   loadTeams()
@@ -30,6 +62,7 @@ function saveTeamTwo(){
 function loadTeams(){
   let scoreOneElem = document.getElementById("score-one")
   let scoreTwoElem = document.getElementById("score-two")
+  let totalScoreElem = document.getElementById("total-score")
   let teamOneData = JSON.parse(window.localStorage.getItem("teamOne"))
   let teamTwoData = JSON.parse(window.localStorage.getItem("teamTwo"))
   if (teamOneData){
@@ -38,8 +71,10 @@ function loadTeams(){
   if (teamTwoData){
     teamTwo = teamTwoData
   }
+  let totalScore = teamOne.score + teamTwo.score
   scoreOneElem.innerText = teamOne.score.toString()
   scoreTwoElem.innerText = teamTwo.score.toString()
+  totalScoreElem.innerText = totalScore.toString()
 }
 
 loadTeams()
